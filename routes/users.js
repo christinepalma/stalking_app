@@ -5,16 +5,17 @@ var User = require("../models/User");
 router.route('/')
   .get(function (req, res) {
     User.find({},function (err, users) {
-      if (err) return res.json("ERROR : ", err.message);
+      if(err) return res.json(err);
 
       res.json(users);
     });
   })
   .post(function (req, res) {
     if(req.body.email) req.body.email=req.body.email.toLowerCase();
-    User.create(req.body, function (err, user) {
+    var user = new User(req.body);
+    user.login_type = "local";
+    user.save(function (err, user) {
       if (err) {
-        console.log(err);
         var errmsgs=[err.message];
         for(var key in err.errors){
           errmsgs.push(err.errors[key].message);
@@ -32,21 +33,34 @@ router.route('/new')
 
 router.route('/:id')
   .get(function (req, res) {
+    if(req.params.id != req.decoded.id) return res.redirect('/');
+    
     User.findOne({_id:req.params.id},function (err,user) {
+      if(err) return res.json(err);
+
+      console.log(user);
       if(!user) return redirect('/');
         res.render('users/show',user);
     });
   })
   .delete(function (req, res) {
+    if(req.params.id != req.decoded.id) return res.redirect('/');
+
     User.findOneAndRemove({_id:req.params.id},function (err,user) {
+      if(err) return res.json(err);
+
       if(!user) return redirect('/');
         res.clearCookie('token');
         res.render('login',{errmsgs:[]});
     });
   })
   .put(function (req, res) {
+    if(req.params.id != req.decoded.id) return res.redirect('/');
+
     if(req.body.email) req.body.email=req.body.email.toLowerCase();
     User.findOne({_id:req.body._id}).select("email first_name last_name password").exec(function (err, user){
+      if(err) return res.json(err);
+
       var isMatched = user.authenticate(req.body.cur_password);
       if(isMatched){
         user.email = req.body.email;
@@ -72,7 +86,12 @@ router.route('/:id')
 
 router.route('/:id/edit')
   .get(function (req, res) {
+    if(req.params.id != req.decoded.id) return res.redirect('/');
+
     User.findOne({_id:req.params.id},function (err,user) {
+      if(err) return res.json(err);
+
+      console.log(user);
       user.errmsgs=[];
       res.render("users/edit",user);
     });
