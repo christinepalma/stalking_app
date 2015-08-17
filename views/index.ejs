@@ -5,10 +5,10 @@
     <title>hi</title>
   </head>
   <body>
-    <p>Hi <%= first_name+last_name %>!</p>
+    <p>Hi <%= (last_name)?(first_name+" "+last_name):(first_name) %>!</p>
     <ul>
       <li><a href="/users/<%= id %>">View my info</a></li>
-      <li><a href="/logout">logout</a></li>
+      <li><a href="/logout">Logout</a></li>
     </ul>
   </body>
 </html>
