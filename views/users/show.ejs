@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/javascripts/main.js"></script>
-    <title>My Info</title>
+    <title><%= (last_name)?(first_name+" "+last_name):(first_name) %>'s Info</title>
   </head>
   <body>
-    <h1>My Info</h1>
+    <h1><%= (last_name)?(first_name+" "+last_name):(first_name) %>'s Info</h1>
     <ul>
-      <li>Name : <%= first_name+" "+last_name %></li>
       <% if(login_type=="local"){ %>
+        <li>First Name : <%= first_name %></li>
+        <li>Last Name : <%= first_name %></li>
         <li>Email : <%= email %></li>
+      <% } else { %>
+        <li>Name : <%= first_name+" "+last_name %></li>
       <% } %>
       <li>Account Type : <%= login_type %></li>
     </ul>

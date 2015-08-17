@@ -6,7 +6,7 @@ var jwt     = require('jsonwebtoken');
 var secret  = require('../config/jwtsecret.js');
 
 router.get('/auth/facebook', passport.authenticate('facebook', {
-  scope: ['email', 'user_birthday', 'user_location', 'user_education_history']
+//  scope: ['email', 'user_birthday', 'user_location', 'user_education_history']
 }));
 
 router.get('/auth/facebook/callback', passport.authenticate('facebook', { //
@@ -18,6 +18,7 @@ router.get('/auth/facebook/new', function (req, res) {
   if(req.isAuthenticated()){
     var user={};
     User.findOne({login_type:"facebook", third_party_id:req.user.id},function (err, facebook_user) {
+      if(err) return res.json(err);
 
       if(!facebook_user){
         User.create({email:"facebook"+req.user.id, first_name:req.user.displayName, last_name:"", login_type:"facebook", third_party_id:req.user.id, password:"facebook"},function (err,new_facebook_user) {
@@ -36,10 +37,6 @@ router.get('/auth/facebook/new', function (req, res) {
   }
 });
 
-
-
-
-
 function create_token(user, res) {
   var token = jwt.sign({
       id: user._id,
@@ -53,6 +50,5 @@ function create_token(user, res) {
   res.cookie("token",token);
   res.redirect('/');
 }
-
 
 module.exports=router;

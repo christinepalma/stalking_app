@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Edit <%= first_name+last_name%>'s Info</title>
+    <title>Edit <%= (last_name)?(first_name+" "+last_name):(first_name) %>'s Info</title>
   </head>
   <body>
-    <h1>Edit <%= first_name+" "+last_name%>'s Info</h1>
+    <h1>Edit <%= (last_name)?(first_name+" "+last_name):(first_name) %>'s Info</h1>
     <% for( var i = 0; i < errmsgs.length; i++ ){%>
       <p><%= errmsgs[i] %></p>
     <% } %>
