@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //database setup
-mongoose.connect('mongodb://christinepalma:wdi!stalker@apollo.modulusmongo.net:27017/gesivU6x');
+mongoose.connect('mongodb://<user>:<pass>@apollo.modulusmongo.net:27017/gesivU6x');
 var db =mongoose.connection;
 db.on("error",function (err) {
   console.log("DB ERROR :",err.message);
