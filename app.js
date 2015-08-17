@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //database setup
-mongoose.connect('mongodb://localhost:27017/stalking_app_db');
+mongoose.connect('mongodb://process.env.WDI_PROJECT_2_MODULUS_ID:process.env.WDI_PROJECT_2_MODULUS_PASSWORD@apollo.modulusmongo.net:27017/gesivU6x');
 var db =mongoose.connection;
 db.on("error",function (err) {
   console.log("DB ERROR :",err.message);
