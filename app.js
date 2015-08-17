@@ -45,10 +45,12 @@ app.use(methodOverride(function(req, res){
 //routes
 var routes=require("./routes/index");
 var users=require("./routes/users");
+var twitter=require("./routes/twitters");
 
 app.use(isLoggedIn);
 app.use('/', routes);
 app.use('/users', users);
+app.use('/twitters', twitter);
 
 //server
 app.listen(3000,function () {
