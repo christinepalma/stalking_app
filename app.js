@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //database setup
-mongoose.connect('mongodb://localhost:27017/stalking_app_db');
+mongoose.connect('mongodb://christinepalma:wdi!stalker@apollo.modulusmongo.net:27017/gesivU6x');
 var db =mongoose.connection;
 db.on("error",function (err) {
   console.log("DB ERROR :",err.message);
@@ -27,6 +27,7 @@ db.on("error",function (err) {
 db.once("open",function () {
   console.log("DB connected");
 });
+
 
 //middlewares
 app.use(morgan('dev'));
