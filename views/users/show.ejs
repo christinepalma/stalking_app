@@ -4,21 +4,24 @@
     <meta charset="utf-8">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/javascripts/main.js"></script>
-    <title><%= first_name+" "+last_name%>'s Info</title>
+    <title>My Info</title>
   </head>
   <body>
-    <h1><%= first_name+" "+last_name%>'s Info</h1>
+    <h1>My Info</h1>
     <ul>
-      <li>First Name : <%= first_name %></li>
-      <li>Last Name : <%= last_name %></li>
-      <li>Email : <%= email %></li>
+      <li>Name : <%= first_name+" "+last_name %></li>
+      <% if(login_type=="local"){ %>
+        <li>Email : <%= email %></li>
+      <% } %>
+      <li>Account Type : <%= login_type %></li>
     </ul>
-    <a href="/users/<%=id%>/edit">Edit my Info</a><br>
-    <form action="/users/<%=id%>" method="post" style="display:inline-block">
-      <input type="hidden" name="_method" value="delete">
-      <a href="#" class="submit" data-confirm="Are you sure?">Delete my account</a>
-    </form>
-
+    <% if(login_type=="local"){ %>
+      <a href="/users/<%=id%>/edit">Edit my Info</a><br>
+      <form action="/users/<%=id%>" method="post" style="display:inline-block">
+        <input type="hidden" name="_method" value="delete">
+        <a href="#" class="submit" data-confirm="Are you sure?">Delete my account</a>
+      </form>
+    <% } %>
     <br><br>
     <a href="/">Back</a>
   </body>
