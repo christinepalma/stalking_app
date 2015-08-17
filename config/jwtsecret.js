@@ -1,3 +1,3 @@
-var secret = "WDI17";
+var secret = "WDI17BESTTEAM";
 
 module.exports = secret;
