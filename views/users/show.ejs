@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/main.js"></script>
+    <title><%= first_name+" "+last_name%>'s Info</title>
+  </head>
+  <body>
+    <h1><%= first_name+" "+last_name%>'s Info</h1>
+    <ul>
+      <li>First Name : <%= first_name %></li>
+      <li>Last Name : <%= last_name %></li>
+      <li>Email : <%= email %></li>
+    </ul>
+    <a href="/users/<%=id%>/edit">Edit my Info</a><br>
+    <form action="/users/<%=id%>" method="post" style="display:inline-block">
+      <input type="hidden" name="_method" value="delete">
+      <a href="#" class="submit" data-confirm="Are you sure?">Delete my account</a>
+    </form>
+
+    <br><br>
+    <a href="/">Back</a>
+  </body>
+</html>
