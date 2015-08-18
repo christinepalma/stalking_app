@@ -7,16 +7,14 @@ var secret  = require('../config/jwtsecret.js');
 
 router.get('/pass',check_existing_user);
 
-
 router.get('/facebook', passport.authenticate('facebook', {
 //  scope: ['email', 'user_birthday', 'user_location', 'user_education_history']
 }));
 
-router.get('/facebook/callback', passport.authenticate('facebook', { //
+router.get('/facebook/callback', passport.authenticate('facebook', {
   successRedirect: '/auth/pass',
   failureRedirect: '/login'
 }));
-
 
 router.get('/google',
   passport.authenticate('google', { scope: 'https://www.googleapis.com/auth/plus.login' }));
@@ -24,12 +22,22 @@ router.get('/google',
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/auth/pass');
+  }
+);
+
+router.get('/twitter',
+  passport.authenticate('twitter'));
+
+router.get('/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: '/login' }),
+  function(req, res) {
     console.log("passed");
     // Successful authentication, redirect home.
     res.redirect('/auth/pass');
-  });
-
-
+  }
+);
 
 function check_existing_user(req, res) {
  console.log(req.user);
