@@ -15,7 +15,7 @@ var session       = require('express-session');
 var app = express();
 
 //base setup
-var port = 3000;
+app.set('port', (process.env.PORT || 3000));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -74,8 +74,8 @@ app.use('/twitters', twitter);
 app.use('/', facebook);
 
 //server
-app.listen(3000,function () {
-  console.log("http://127.0.0.1:"+port+"/");
+app.listen(app.get('port'),function () {
+  console.log("http://127.0.0.1:"+app.get('port')+"/");
 });
 
 //login check
