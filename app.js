@@ -66,12 +66,14 @@ var routes  =require("./routes/index");
 var users   =require("./routes/users");
 var twitter =require("./routes/twitters");
 var facebook=require("./routes/facebook");
+var youtube =require("./routes/youtube");
 
 app.use(isLoggedIn);
 app.use('/', routes);
 app.use('/users', users);
 app.use('/twitters', twitter);
 app.use('/', facebook);
+app.use('/youtube', youtube)
 
 //server
 app.listen(3000,function () {
