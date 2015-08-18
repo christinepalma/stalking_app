@@ -39,5 +39,8 @@
   "bugs": {
     "url": "https://github.com/imtaekh/node_login_example_jwt_bcrytp/issues"
   },
+  "engines": {
+    "node": "0.12.4"
+  },
   "homepage": "https://github.com/imtaekh/node_login_example_jwt_bcrytp#readme"
 }

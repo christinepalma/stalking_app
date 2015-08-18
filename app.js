@@ -15,14 +15,15 @@ var session       = require('express-session');
 var app = express();
 
 //base setup
-var port = 3000;
+app.set('port', (process.env.PORT || 3000));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //database setup
 
-mongoose.connect('mongodb://localhost:27017/stalking_app_db');
+mongoose.connect(process.env.WDI_PROJECT_2_MODULUS_CONNECTION);
+// mongoose.connect('mongodb://localhost:27017/stalking_app_db');
 var db = mongoose.connection;
 
 db.on("error",function (err) {
@@ -76,8 +77,8 @@ app.use('/', facebook);
 app.use('/youtube', youtube)
 
 //server
-app.listen(3000,function () {
-  console.log("http://127.0.0.1:"+port+"/");
+app.listen(app.get('port'),function () {
+  console.log("http://127.0.0.1:"+app.get('port')+"/");
 });
 
 //login check
