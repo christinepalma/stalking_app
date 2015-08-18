@@ -6,7 +6,7 @@ var secret  = require('../config/jwtsecret.js');
 
 router.route('/')
   .get(function (req, res) {
-    res.render("index",req.decoded);
+    res.redirect("/app");
   });
 
 router.route('/logout')

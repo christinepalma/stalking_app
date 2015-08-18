@@ -34,7 +34,7 @@ db.once("open",function () {
 });
 
 //3rd party authentication
-var Facebook = require('./config/facebook');
+var Passport = require('./config/passport');
 
 passport.serializeUser(function(user, done){
     done(null, user);
@@ -64,15 +64,16 @@ app.use(methodOverride(function(req, res){
 
 //routes
 var routes  =require("./routes/index");
+var appRoute  =require("./routes/app");
 var users   =require("./routes/users");
-var twitter =require("./routes/twitters");
-var facebook=require("./routes/facebook");
+var twitter =require("./routes/twitter");
+var auth   =require("./routes/auth");
 
-app.use(isLoggedIn);
 app.use('/', routes);
-app.use('/users', users);
-app.use('/twitters', twitter);
-app.use('/', facebook);
+app.use('/app', isLoggedIn, appRoute);
+app.use('/users', isLoggedIn, users);
+app.use('/twitter', isLoggedIn, twitter);
+app.use('/auth', auth);
 
 //server
 app.listen(app.get('port'),function () {
@@ -82,8 +83,7 @@ app.listen(app.get('port'),function () {
 //login check
 var secret= require('./config/jwtsecret');
 function isLoggedIn(req, res, next) {
-  var openPaths = { '/favicon.ico':["GET"], '/login':["GET","POST"], '/users':["GET", "POST"], '/users/new':["GET"],
-                    '/auth/facebook':["GET"], '/auth/facebook/callback':["GET"] };
+  var openPaths = { '/users':["GET", "POST"], '/users/new':["GET"]};
   var reqPath = req._parsedUrl.pathname;
   var reqMethod = req.method;
 
