@@ -5,28 +5,6 @@ var jwt     = require('jsonwebtoken');
 var secret  = require('../config/jwtsecret.js');
 var instagram = require("../config/instagram");
 
-
-//INSTAGRAM
-router.get("/instagram", function(err, res) {
-  if(err) {
-    console.log(err);
-    return;
-  } else {
-
-    console.log(data);
-
-     var instagramKey = process.env.WDI_PROJECT_3_INSTAGRAM_ACCESS_TOKEN;
-    res.render('index',instagramKey);
-      }
-
-
-
-});
-
-
-
-
-
 router.route('/')
   .get(function (req, res) {
     res.redirect("/app");

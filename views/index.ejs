@@ -3,81 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>hi</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-
-    <script>
-
-    $.ajax({
-      contentType: "application/json",
-      method: "get",
-      dataType: "jsonp",
-      data: {},
-      crossDomain: 'true',
-      url: "https://api.instagram.com/v1/users/self/media/recent/?access_token="+ <%= instagramKey%>,
-      // success: function(data){
-      //     console.log(data);
-      //   $('body').append(JSON.stringify(data));
-      // }
-      success: function (data) {
-        console.log(data.data[0].images);
-          var html =
-              '<a href="' + data.data[0].thumbnail_url + '" >'+
-              '<img src="' + data.data[0].images.low_resolution.url + '" alt="thumbnail" /></a>'+
-              '<p>Author : ' + data.data[0].author_name + '<br />'+
-              'Author\'s ID: ' + data.data[0].author_id + '<br />'+
-              'Title : ' + data.data[0].title + '</p>';
-
-          $(".container").html(html);
-
-
-      }
-    });
-
-
-    $(document).ready(function(){
-        $("button").click(function(){
-            $.getJSON("/instagram", function(result){
-                $.each(result, function(i, field){
-                    $("div").append(field + " ");
-                    console.log("views for instagram working");
-                });
-            });
-        });
-    });
-
-
-
-
-
-
-
-
-    </script>
-
-
-
-  </head>
   <body>
     <p>Hi <%= (last_name)?(first_name+" "+last_name):(first_name) %>!</p>
     <ul>
       <li><a href="/users/<%= id %>">View my info</a></li>
       <li><a href="/logout">Logout</a></li>
     </ul>
-
-
-
-
-
-    <button>Get Instagram JSON data</button>
-
-    <p id="instagram_json">&nbsp;</p>
-<div class="container"></div>
-
-
-
-
-
-
   </body>
 </html>
