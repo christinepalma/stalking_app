@@ -9,25 +9,16 @@ router.get("/:id",function (req,res) {
 
   var username=req.params.id;
   var channelId;
-<<<<<<< HEAD
   getJSON('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername='+username+'&key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY
   , function(data) {
-=======
-  getJSON('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername='+username+'&key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY,
-  function(data) {
->>>>>>> master
    // do something with 'data'
    console.log(data.items[0].id);
    channelId=data.items[0].id;
 
    console.log('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+channelId+'&order=date&key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY);
-<<<<<<< HEAD
+
    getJSON('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+channelId+'&order=date&key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY
    , function(data) {
-=======
-   getJSON('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+channelId+'&order=date&key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY,
-   function(data) {
->>>>>>> master
      // do something with 'data'
      console.log(data);
      res.send(data);
