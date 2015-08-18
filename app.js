@@ -64,16 +64,19 @@ app.use(methodOverride(function(req, res){
 
 //routes
 var routes  =require("./routes/index");
-var appRoute  =require("./routes/app");
+var appRoute=require("./routes/app");
 var users   =require("./routes/users");
 var twitter =require("./routes/twitter");
-var auth   =require("./routes/auth");
+var auth    =require("./routes/auth");
+var youtube =require("./routes/youtube");
 
-app.use('/', routes);
+app.use('/',routes);
 app.use('/app', isLoggedIn, appRoute);
 app.use('/users', isLoggedIn, users);
 app.use('/twitter', isLoggedIn, twitter);
 app.use('/auth', auth);
+app.use('/youtube', youtube);
+
 
 //server
 app.listen(app.get('port'),function () {
