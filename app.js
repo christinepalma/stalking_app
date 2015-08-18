@@ -22,8 +22,8 @@ app.set('view engine', 'ejs');
 
 //database setup
 
-mongoose.connect(process.env.WDI_PROJECT_2_MODULUS_CONNECTION);
-// mongoose.connect('mongodb://localhost:27017/stalking_app_db');
+// mongoose.connect(process.env.WDI_PROJECT_2_MODULUS_CONNECTION);
+mongoose.connect('mongodb://localhost:27017/stalking_app_db');
 var db = mongoose.connection;
 
 db.on("error",function (err) {
@@ -33,7 +33,7 @@ db.once("open",function () {
   console.log("DB connected");
 });
 
-//facebook login setup
+//3rd party authentication
 var Facebook = require('./config/facebook');
 
 passport.serializeUser(function(user, done){

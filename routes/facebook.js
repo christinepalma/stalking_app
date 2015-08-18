@@ -21,13 +21,12 @@ router.get('/auth/facebook/new', function (req, res) {
       if(err) return res.json(err);
 
       if(!facebook_user){
-        User.create({email:"facebook"+req.user.id, first_name:req.user.displayName, last_name:"", login_type:"facebook", third_party_id:req.user.id, password:"facebook"},function (err,new_facebook_user) {
+        User.create({email:"facebook"+req.user.id, first_name:req.user.displayName, login_type:"facebook", third_party_id:req.user.id, password:"facebook"},function (err,new_facebook_user) {
           if(err) return res.json(err);
           console.log(new_facebook_user);
           create_token(new_facebook_user, res);
         });
       } else {
-        console.log("here222");
         create_token(facebook_user, res);
       }
 

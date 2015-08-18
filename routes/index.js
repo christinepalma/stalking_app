@@ -33,7 +33,7 @@ router.route('/login')
       console.log(user);
         var token = jwt.sign({
             id: user._id,
-            login_type: "local",
+            login_type: user.login_type,
             first_name: user.first_name,
             last_name: user.last_name,
             email: user.email,
