@@ -22,7 +22,11 @@ app.set('view engine', 'ejs');
 
 //database setup
 
+<<<<<<< HEAD
+// mongoose.connect(process.env.WDI_PROJECT_2_MODULUS_CONNECTION);
+=======
 //mongoose.connect(process.env.WDI_PROJECT_3_MODULUS_CONNECTION);
+>>>>>>> master
 mongoose.connect('mongodb://localhost:27017/stalking_app_db');
 var db = mongoose.connection;
 
