@@ -68,6 +68,7 @@ var users   =require("./routes/users");
 var twitter =require("./routes/twitters");
 var facebook=require("./routes/facebook");
 var youtube =require("./routes/youtube");
+var googleplus =require("./routes/googleplus");
 
 app.use(isLoggedIn);
 app.use('/', routes);
@@ -75,6 +76,7 @@ app.use('/users', users);
 app.use('/twitters', twitter);
 app.use('/', facebook);
 app.use('/youtube', youtube)
+app.use('/googleplus', googleplus)
 
 //server
 app.listen(app.get('port'),function () {
