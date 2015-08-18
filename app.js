@@ -32,6 +32,10 @@ db.once("open",function () {
   console.log("DB connected");
 });
 
+//instagram setup
+var Instagram = require('./config/instagram');
+
+
 //facebook login setup
 var Facebook = require('./config/facebook');
 
@@ -66,6 +70,8 @@ var routes  =require("./routes/index");
 var users   =require("./routes/users");
 var twitter =require("./routes/twitters");
 var facebook=require("./routes/facebook");
+var instagram=require("./routes/instagram");
+
 
 app.use(isLoggedIn);
 app.use('/', routes);

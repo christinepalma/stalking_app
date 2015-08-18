@@ -3,8 +3,8 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.use(new FacebookStrategy(
   {
-    clientID      : process.env.WDI_PROJECT_2_FACEBOOK_APP_ID,
-    clientSecret  : process.env.WDI_PROJECT_2_FACEBOOK_APP_SECRET,
+    clientID      : process.env.WDI_PROJECT_3_FACEBOOK_APP_ID,
+    clientSecret  : process.env.WDI_PROJECT_3_FACEBOOK_APP_SECRET,
     callbackURL   : "http://localhost:3000/auth/facebook/callback",
     profileFields : ["id","displayName","photos","emails","birthday","location"]
   },
