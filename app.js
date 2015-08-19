@@ -66,6 +66,7 @@ app.use(methodOverride(function(req, res){
 var routes  =require("./routes/index");
 var appRoute=require("./routes/app");
 var users   =require("./routes/users");
+var panels    =require("./routes/panels");
 var twitter =require("./routes/twitter");
 var instagram =require("./routes/instagram");
 var auth    =require("./routes/auth");
@@ -74,6 +75,7 @@ var youtube =require("./routes/youtube");
 app.use('/',routes);
 app.use('/app', isLoggedIn, appRoute);
 app.use('/users', isLoggedIn, users);
+app.use('/panels', panels);
 app.use('/twitter', isLoggedIn, twitter);
 app.use('/instagram', isLoggedIn, instagram);
 app.use('/auth', auth);
