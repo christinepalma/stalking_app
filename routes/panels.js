@@ -44,7 +44,7 @@ router.route('/:id')
         if(err) return res.json({sucess:false, message:"err"});
 
         res.json({success:true, message:"panel updated"});
-      })
+      });
     });
   });
 

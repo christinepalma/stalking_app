@@ -1,18 +1,12 @@
 {
-  "name": "node_login_example_jwt_bcrytp",
+  "name": "stalking_app",
   "version": "1.0.0",
-  "description": "node js login example using jwt, bcrypt and cookie-parser",
+  "description": "stalk anyone you like",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "node",
-    "jwt",
-    "bcrypt",
-    "cookie-parser"
-  ],
-  "author": "Imtaek Hong",
+  "author": "Imtaek Hong, Simon Cho, Christine Palma",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^0.8.5",
@@ -37,13 +31,13 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imtaekh/node_login_example_jwt_bcrytp.git"
+    "url": "git+https://github.com/christinepalma/stalking_app.git"
   },
   "bugs": {
-    "url": "https://github.com/imtaekh/node_login_example_jwt_bcrytp/issues"
+    "url": "https://github.com/christinepalma/stalking_app/issues"
   },
   "engines": {
     "node": "0.12.4"
   },
-  "homepage": "https://github.com/imtaekh/node_login_example_jwt_bcrytp#readme"
+  "homepage": "https://github.com/christinepalma/stalking_app#readme"
 }
