@@ -1,6 +1,6 @@
 var express = require('express');
-var router  = express.Router();
 var Panel   = require("../models/Panel");
+var router  = express.Router();
 
 router.route('/')
   .get(function (req, res) {
@@ -11,7 +11,6 @@ router.route('/')
     });
   })
   .post(function (req, res) {
-    console.log(req.body);
     Panel.create(req.body,function (err, panel) {
       if(err) return res.json({sucess:false, message:"err"});
 
@@ -37,11 +36,15 @@ router.route('/:id')
     });
   })
   .put(function (req, res) {
-    Panel.findOne({_id:req.body._id}, function (err, panel){
+    Panel.findOne({_id:req.params.id}, function (err, panel){
       if(err) return res.json({sucess:false, message:"err"});
 
       if(!panel) return res.json({sucess:false, message:"No panel founds"});
-      res.json({success:true, message:"panel updated"});
+      Panel.findOneAndUpdate({_id:req.params.id},req.body,function (err, panel) {
+        if(err) return res.json({sucess:false, message:"err"});
+
+        res.json({success:true, message:"panel updated"});
+      })
     });
   });
 

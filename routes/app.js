@@ -4,8 +4,13 @@ var router  = express.Router();
 
 router.route('/')
   .get(function (req, res) {
-
-    res.render("index",{user:req.decoded, panels:[]});
+    console.log(req.decoded.id);
+    var user_id = req.decoded.id;
+    Panel.find({owner:req.decoded.id}).sort('order').exec( function (err, panels) {
+      if (err) return res.json(err);
+      console.log(panels);
+      res.render("index",{user:req.decoded, panels:panels});
+    });
   });
 
 module.exports=router;
