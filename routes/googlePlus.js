@@ -4,29 +4,20 @@ var XMLHttpRequest = require("xhr2");
 var router = express.Router();
 
 router.get("/:id",function (req,res) {
-  // res.send("hi");
-  https://www.googleapis.com/plus/v1/people/'+username+'/activities/public?key=AIzaSyD0i_aPHGKbU-lKXtT4ngZclYOceIZzPhE
+  console.log("HIHIHIHIHI");
+
+
   var username=req.params.id
-  var channelId;
-  getJSON('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername='+username+'&key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY
+  console.log(username);
+  getJSON('https://www.googleapis.com/plus/v1/people/'+username+'/activities/public?key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY
+  // getJSON('https://www.googleapis.com/plus/v1/people/'+username+'/activities/public?key=AIzaSyDolzZwX8aWFhU0L5fd28p-5nqNySw2-fg'
   , function(data) {
    // do something with 'data'
-   console.log(data.items[0].id);
-   channelId=data.items[0].id;
+   res.send(data);
 
-   console.log('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+channelId+'&order=date&key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY);
-   getJSON('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+channelId+'&order=date&key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY
-   , function(data) {
-     // do something with 'data'
-     console.log(data);
-     res.send(data);
-   }, function(status) {
-   // err
-     res.send("something went wrong")
-   });
   }, function(status) {
-   // err
-     res.send("something went wrong")
+  // err
+    res.send("something went wrong")
   });
 });
 
