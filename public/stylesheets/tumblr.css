@@ -64,6 +64,7 @@ a:hover{
 .content_img{
   float: none;
   width: 60%;
+  height: auto;
 }
 .content_video_thumb{
   float: none;
