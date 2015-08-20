@@ -71,6 +71,7 @@ var twitter =require("./routes/twitter");
 var instagram =require("./routes/instagram");
 var auth    =require("./routes/auth");
 var youtube =require("./routes/youtube");
+var googleplus =require("./routes/googleplus");
 
 app.use('/',routes);
 app.use('/app', isLoggedIn, appRoute);
@@ -80,7 +81,7 @@ app.use('/twitter', twitter);
 app.use('/instagram', isLoggedIn, instagram);
 app.use('/auth', auth);
 app.use('/youtube', youtube);
-
+app.use('/googleplus', googleplus);
 
 //server
 app.listen(app.get('port'),function () {
