@@ -13,7 +13,7 @@ router.get("/:id",function (req,res) {
   // getJSON('https://www.googleapis.com/plus/v1/people/'+username+'/activities/public?key=AIzaSyDolzZwX8aWFhU0L5fd28p-5nqNySw2-fg'
   , function(data) {
    // do something with 'data'
-   res.send(data);
+   res.render('panels/googleplus',{data:data})
 
   }, function(status) {
   // err
