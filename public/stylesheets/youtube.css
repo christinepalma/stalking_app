@@ -9,11 +9,6 @@
 
 .row{
   border: 1px solid black;
-  margin: 0;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
   background-color: white;
 }
 
@@ -30,4 +25,11 @@
 #des{
   font-family: helvetica;
   font-size: 15px;
+}
+
+#first{
+  float: right;
+}
+.panel-heading{
+  text-align: center;
 }
