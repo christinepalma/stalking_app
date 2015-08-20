@@ -14,4 +14,11 @@ $(document).ready(function(){
                 +date.getFullYear());
   });
 
+  $(".feed_content").each(function(){
+    var content = $(this).data("content");
+    $(this).html(content);
+  });
+  $(".play_btn").each(function(){
+    $(this).html("▶");
+  });
 });
