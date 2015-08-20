@@ -5,7 +5,7 @@ var router = express.Router();
 router.get("/:id",function (req,res) {
   var cityname=req.params.id
 
-  getJSON('http://api.openweathermap.org/data/2.5/weather?q='+cityname
+  getJSON('http://api.openweathermap.org/data/2.5/weather?q='+cityname+'&units=imperial'
   , function(data) {
    // do something with 'data'
    res.render('panels/weather',{data:data})
