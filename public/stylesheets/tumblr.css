@@ -59,9 +59,6 @@ a:hover{
   font-size: 0.8em;
 }
 .feed_img{
-  width: 100%;
-}
-.content_img{
   float: none;
   width: 60%;
   height: auto;

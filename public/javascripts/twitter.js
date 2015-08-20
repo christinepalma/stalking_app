@@ -14,7 +14,7 @@ $(document).ready(function(){
                 +date.getFullYear());
   });
 
-  $(".tweet_content").each(function(){
+  $(".feed_content").each(function(){
     var content = $(this).html();
 
     var url_array = $(this).data("urls").split(',');
@@ -24,7 +24,7 @@ $(document).ready(function(){
 
     var pic_array = $(this).data("pics").split(',');
     pic_array.forEach(function (pic) {
-      if(pic) content = content.replace(pic,"<img class='tweet_img' src='"+pic+"'>");
+      if(pic) content = content.replace(pic,"<img class='feed_img' src='"+pic+"'>");
     });
     console.log(content);
     $(this).html(content);

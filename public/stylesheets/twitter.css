@@ -45,19 +45,49 @@ a:hover{
   font-size:15px;
   color: gray;
 }
-.tweet_div{
+.feed_div{
   background-color: white;
   margin: 5px;
   padding: 5px;
 }
-.tweet_content{
+.feed_content{
   margin: 1px;
 }
-.tweet_time{
+.feed_time{
   margin: 1px;
   text-align: right;
   font-size: 0.8em;
 }
-.tweet_img{
-  width: 100%;
+.feed_img{
+  float: none;
+  width: 60%;
+  height: auto;
+}
+.content_video_thumb{
+  float: none;
+  max-width: 100%;
+}
+.content_video{
+  position:relative;
+  display: inline-block;
+  width:60%
+}
+.play_btn{
+  position:absolute;
+  border-radius: 20%;
+  width:50px;
+  height:50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color:rgba(0,0,0,0.7);
+}
+.btn_p{
+  color: white;
+  font-size: 30px;
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-45%, -50%);
+  font-size: 20px;
 }

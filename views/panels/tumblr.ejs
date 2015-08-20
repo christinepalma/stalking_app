@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,41 +14,42 @@
       <h2 class="header_name screen_name"><a href="<%= data.response.blog.url %>" target="_blank"><%= data.response.blog.url %></a></h2>
     </header>
     <div class="container">
-    <% data.response.posts.forEach(function(feed){
-      var content;
-      switch(feed.type){
-        case "photo":
-        case "video":
-          content = feed.caption;
-          break;
-        case "text":
-          content = feed.body;
-          break;
-      }
+    <%
+      data.response.posts.forEach(function(feed){
+        var content;
+        switch(feed.type){
+          case "photo":
+          case "video":
+            content = feed.caption;
+            break;
+          case "text":
+            content = feed.body;
+            break;
+        }
 
-      if(feed.permalink_url){
-        var content_video =
-          "<div class='content_video'><a href='"+feed.permalink_url+"' target='_blank'><div class='play_btn'></div><div class='btn_p'> ▶</div><img class='content_video_thumb' src='"+feed.thumbnail_url+"'></a></div>";
+        if(feed.permalink_url){
+          var content_video =
+            "<div class='content_video'><a href='"+feed.permalink_url+"' target='_blank'><div class='play_btn'></div><div class='btn_p'> ▶</div><img class='content_video_thumb' src='"+feed.thumbnail_url+"'></a></div>";
 
-        content = content_video+content;
-      }
-      if(feed.photos){
-        feed.photos.forEach(function (photo) {
-          var content_pics=
-            "<img class='content_img' src='"+photo.alt_sizes[2].url+"'>"
+          content = content_video+content;
+        }
+        if(feed.photos){
+          feed.photos.forEach(function (photo) {
+            var content_pics=
+              "<img class='feed_img' src='"+photo.alt_sizes[2].url+"'>"
 
-          content = content_pics+content
-        })
-      }
-      content=content.replace("img src","img class='content_img' src");
-
+            content = content_pics+content
+          })
+        }
+        content=content.replace("img src","img class='feed_img' src");
+        %>
+          <div class="feed_div">
+            <p class="feed_content" data-content="<%= content %>"></p>
+            <p class="feed_time" data-time="<%= feed.date %>"></p>
+          </div>
+        <%
+      })
     %>
-      <div class="feed_div">
-        <p class="feed_content" data-content="<%= content %>"></p>
-        <p class="feed_time" data-time="<%= feed.date %>"></p>
-      </div>
-    <% }) %>
-
     </div>
   </body>
 </html>
