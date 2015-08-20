@@ -7,7 +7,6 @@ router.get("/:id",function (req,res) {
   getJSON('http://api.tumblr.com/v2/blog/'+req.params.id+'/posts?limit=10', function(data) {
    // do something with 'data'
    res.render("panels/tumblr", {data:data});
-   res.send({data:data});
   }, function(status) {
    // err
    res.send("something went wrong");
