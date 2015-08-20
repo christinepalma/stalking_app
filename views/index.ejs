@@ -2,13 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>hi</title>
 
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
   </head>
   <body>
@@ -19,7 +23,7 @@
 
     <nav class="navbar navbar-default">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">stalker app</a>
+      <a class="navbar-logo" href="#">stalker app</a>
     </div>
 
 
@@ -29,8 +33,8 @@
         <li class="active"><a href="#">start stalking</a></li>
         <li><a href="#">about</a></li>
         <li><a href="#">contact</a></li>
-        <li><a href="/users/<%= user.id %>">profile page</a></li>
-        <li class="navbar-right"><a href="/logout">logout</a></li>
+        <li class="right"><a href="/users/<%= user.id %>">profile page</a></li>
+        <li class="right"><a href="/logout">logout</a></li>
       </ul>
 
     </div>
@@ -53,21 +57,26 @@
 
           <% panels.forEach(function(el){ %>
             <div class="panel">
-              <embed src="/<%= el.type %>/<%= el.target_id %>"></embed>
+              <embed class="embedded_panel" src="/<%= el.type %>/<%= el.target_id %>"></embed>
             </div>
           <% }) %>
 
 
 
-<!-- This is empty -->
+<!-- This is empty - starting position - header text to be replaced dynamically- 01 -->
       <div class="panel">
-      <div class="panel_content">
+        <div class="panel_header">click on the + sign to start</div>
+        <div class="panel_content">
         <div class="plus_sign">+</div>
       </div>
     </div>
 
+
+
+
+
   <!-- Panel 1 - slide out menu with username login -->
-                                      <div class="slideout_menu_container">
+                                      <!-- <div class="slideout_menu_container">
                                       <ul class="slideout_menu">
                                         <li>
                                           <a href="#">Facebook</a>
@@ -168,8 +177,22 @@
                                           </ul>
                                         </li>
                                           </ul>
-                                    </div>
+                                    </div> -->
             <!-- /end slideout menu -->
+
+
+
+<!-- This is the footer -->
+
+<div class="footer">
+<span class="footer_elements">&copy; the best team ever
+              <a href="#"><i id="social" class="fa fa-facebook-square fa-3x"></i></a>
+	            <a href="#"><i id="social" class="fa fa-twitter-square fa-3x"></i></a>
+	            <a href="#"><i id="social" class="fa fa-google-plus-square fa-3x"></i></a>
+</span>
+</div>
+
+
 
 
 </div>

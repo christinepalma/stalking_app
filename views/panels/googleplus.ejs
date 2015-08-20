@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>googleplus</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/googleplus.css" media="screen" title="no title" charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/googleplus.js"></script>
+  </head>
+  <body>
+    <div class="panel panel-default">
+      <div class="panel-heading"><img id="avatar" src="<%=data.items[0].actor.image.url%>" alt="" />   <%=data.items[0].actor.displayName%></div>
+    </div>
+    <% data.items.forEach(function(item){ %>
+        <div class="panel panel-default">
+            <div class="panel-body">
+              <%
+                var result;
+                if(item.object.attachments){
+                  var attachment = item.object.attachments[0];
+                  if(attachment.objectType == "photo"){
+                    result = attachment.image.url;
+                    %>
+                      <img id="postPic" class="attachment" src="<%= result %>" alt="" />
+                    <%
+                  }
+                  if(attachment.objectType == "video"){
+                    result = attachment.embed.url;
+                    %>
+                      <iframe id="postVid" src="<%=result%>" width="" height=""></iframe>
+                    <%
+                  }
+                }
+              %>
+              <p class="feed_content" data-content="<%= item.object.content %>"></p>
+              <p class="feed_time" data-time="<%=item.updated%>"></p>
+            </div>
+        </div>
+    <% }) %>
+  </div>
+</body>
+</html>
