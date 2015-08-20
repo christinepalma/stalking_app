@@ -1,7 +1,6 @@
 var month =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 $(document).ready(function(){
-  console.log("loaded");
   $("header").css("background", "url("+$("header").data("url")+") no-repeat center");
   $("header").css("background-size", "cover");
 
@@ -26,7 +25,6 @@ $(document).ready(function(){
     pic_array.forEach(function (pic) {
       if(pic) content = content.replace(pic,"<img class='feed_img' src='"+pic+"'>");
     });
-    console.log(content);
     $(this).html(content);
   });
 });

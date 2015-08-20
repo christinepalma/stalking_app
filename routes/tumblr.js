@@ -4,7 +4,7 @@ var XMLHttpRequest = require("xhr2");
 var router = express.Router();
 
 router.get("/:id",function (req,res) {
-  getJSON('http://api.tumblr.com/v2/blog/'+req.params.id+'/posts?limit=10', function(data) {
+  getJSON('http://api.tumblr.com/v2/blog/'+req.params.id+'.tumblr.com/posts?limit=10', function(data) {
    // do something with 'data'
    res.render("panels/tumblr", {data:data});
   }, function(status) {
@@ -14,7 +14,7 @@ router.get("/:id",function (req,res) {
 });
 
 router.get("/:id/.json",function (req,res) {
-  getJSON('http://api.tumblr.com/v2/blog/'+req.params.id+'/posts?limit=10', function(data) {
+  getJSON('http://api.tumblr.com/v2/blog/'+req.params.id+'.tumblr.com/posts?limit=10', function(data) {
    // do something with 'data'
    res.send({data:data});
   }, function(status) {
