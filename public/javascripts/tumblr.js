@@ -14,17 +14,10 @@ $(document).ready(function(){
   });
 
   $(".feed_content").each(function(){
-    var content = $(this).html();
-
-    var url_array = $(this).data("urls").split(',');
-    url_array.forEach(function (url) {
-      if(url) content = content.replace(url,"<a href='"+url+"' target='_blank'>"+url+"</a>");
-    });
-
-    var pic_array = $(this).data("pics").split(',');
-    pic_array.forEach(function (pic) {
-      if(pic) content = content.replace(pic,"<img class='feed_img' src='"+pic+"'>");
-    });
+    var content = $(this).data("content");
     $(this).html(content);
+  });
+  $(".play_btn").each(function(){
+    $(this).html("▶");
   });
 });
