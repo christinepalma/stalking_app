@@ -4,7 +4,7 @@ $(document).ready(function(){
   $("header").css("background", "url("+$("header").data("url")+") no-repeat center");
   $("header").css("background-size", "cover");
 
-  $(".tweet_time").each(function(){
+  $(".feed_time").each(function(){
     var date = new Date($(this).data("time"));
     $(this).html(((date.getHours().toString().length==1)?("0"+date.getHours()):(date.getHours()))+":"
                 +((date.getMinutes().toString().length==1)?("0"+date.getMinutes()):(date.getMinutes()))+" "
