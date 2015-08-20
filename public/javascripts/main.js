@@ -8,4 +8,7 @@ $(document).ready(function(){
     if(this.dataset.confirm) confirmed = confirm(this.dataset.confirm);
     if(confirmed!==false) form.submit();
   });
+
+
+
 });

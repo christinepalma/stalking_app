@@ -34,7 +34,7 @@ router.route('/new')
 router.route('/:id')
   .get(function (req, res) {
     if(req.params.id != req.decoded.id) return res.redirect('/');
-    
+
     User.findOne({_id:req.params.id},function (err,user) {
       if(err) return res.json(err);
 
@@ -58,7 +58,7 @@ router.route('/:id')
     if(req.params.id != req.decoded.id) return res.redirect('/');
 
     if(req.body.email) req.body.email=req.body.email.toLowerCase();
-    User.findOne({_id:req.body._id}).select("email first_name last_name password").exec(function (err, user){
+    User.findOne({_id:req.params.id}).select("email first_name last_name password").exec(function (err, user){
       if(err) return res.json(err);
 
       var isMatched = user.authenticate(req.body.cur_password);
