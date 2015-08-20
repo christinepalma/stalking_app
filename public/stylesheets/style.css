@@ -1,13 +1,3 @@
-/*label{
-  display: inline-block;
-  width:100px;
-}*/
-
-
-
-/*3 collumn layout - containers*/
-
-
 body{
   background-image: url(../images/background_gray_02.jpg);
   background-size: cover;
@@ -30,7 +20,25 @@ a {
     color: #ffffff !important;
     text-decoration: none !important;
 }
+.navbar-default {
+  background:transparent;
+  border: 0px;
+}
 
+h1{
+  text-align: center;
+  margin: 20px 0 30px 0;
+  padding: 0;
+  font-family: 'Abel', sans-serif;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1em;
+  letter-spacing: 5px;
+}
 .container-fluid{
   margin: 0 auto;
   position: relative;
@@ -40,91 +48,83 @@ a {
 .panel{
   position: relative;
   display: inline-block;
-  float:none;
-  text-align: center;
   border: 2px;
   z-index: 1;
-  margin: 10px;
   background: rgba(255, 255, 255, 0);
       -pie-background:  rgba(255, 255, 255, 0);
       behavior: url(PIE.htc);
 }
 
-
-.panel{
-  position: relative;
-  display: inline-block;
-  float:none;
-  text-align: center;
-  border: 2px;
-  z-index: 1;
-  margin: 10px;
-  background: rgba(255, 255, 255, 0);
-      -pie-background:  rgba(255, 255, 255, 0);
-      behavior: url(PIE.htc);
+.embedded_panel{
+  width: 370px;
+  height: 370px;
 }
-
-
-
-.plus_sign{
-  color: #ffffff;
-  opacity: 1px;
-  padding-left: 170px;
-  padding-top: 170px;
-  font-size: 72px;
-  font-weight: 900;
-  z-index: 4;
-}
-
-
-
 .panel_header{
   background: rgba(255, 255, 255, 0.5);
       -pie-background:  rgba(255, 255, 255, 0.5);
       behavior: url(PIE.htc);
-  width: 400px;
-  height: 80px;
-  border: 2px solid;
+  width: 370px;
+  height: 25px;
+  border: 2px solid white;
   position: relative;
   display: block;
   float:none;
+  color:black;
   font-size: 12px;
   text-align: center;
-  margin: 10px;
   margin-bottom: -2px !important;
-  padding: 30px;
+  padding: 5px;
   z-index: 3;
 }
-
-
-
-.panel_content{
+.column{
+  text-align: center;
+}
+.empty_panel{
+  position: relative;
   background: rgba(255, 255, 255, 0.5);
       -pie-background:  rgba(255, 255, 255, 0.5);
       behavior: url(PIE.htc);
-  width: 400px;
-  height: 400px;
+  width: 370px;
+  height: 370px;
   border: 2px solid;
   position: relative;
   display: block;
   float:none;
   font-size: 12px;
   text-align: left;
-  margin: 10px;
-  margin-top: 0px !important;
-  padding: 10px;
   z-index: 2;
 }
-
-
-.panel_row{
-  margin: 0 auto;
-  position: relative;
-  border: 2px;
-  text-align: center;
+.clickable{
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
 }
-
-
+.hiddenMenu{
+  display: none;
+}
+.clickable:hover{
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.centered{
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  cursor: pointer;
+}
+.add_menu_row{
+  font-size: 20px;
+  padding: 3px;
+}
+.instruction{
+  background-color: yellow;
+  width:300px;
+  height:100px;
+}
+.add_menu_row input{
+  color: black;
+  font-size: 15px;
+}
 .slideout_menu_container{
   border: 2px solid;
   background-color: #ffffff;
@@ -142,11 +142,7 @@ a {
 /*This is the top nav bar*/
 
 
- .navbar-default {
-   background:transparent;
-   border: 0px;
-   margin-bottom: 50px;
- }
+
 
 
 .navbar-logo {
@@ -196,19 +192,6 @@ a {
 
 /*This is the main content styling*/
 
-h1{
-  text-align: center;
-  padding-bottom: 60px;
-  font-family: 'Abel', sans-serif;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 36px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1em;
-  letter-spacing: 5px;
-}
 
 
 /*This is the login*/
@@ -282,7 +265,7 @@ h1{
 
 /*This is the footer with dynamic social media icons*/
 
-.footer{
+footer{
   padding: 30px;
   text-align: right;
   background: transparent;
@@ -307,7 +290,3 @@ h1{
 -moz-transition-duration: 0.5s;
 -o-transition-duration: 0.5s;
 			}
-.embedded_panel{
-  width: 400px;
-  height: 400px;
-}

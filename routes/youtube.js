@@ -25,7 +25,7 @@ router.get("/channel/:id/.json",function (req,res) {
  });
 });
 
-router.get("/user/:id",function (req,res) {
+router.get("/username/:id",function (req,res) {
   var username=req.params.id;
   var channelId;
 
@@ -47,7 +47,7 @@ router.get("/user/:id",function (req,res) {
   });
 });
 
-router.get("/user/:id/.json",function (req,res) {
+router.get("/username/:id/.json",function (req,res) {
   var username=req.params.id;
   var channelId;
 
