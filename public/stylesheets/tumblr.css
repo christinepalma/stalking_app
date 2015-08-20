@@ -33,3 +33,16 @@ header{
   font-size:15px;
   color: gray;
 }
+.feed_div{
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+}
+.feed_content{
+  margin: 1px;
+}
+.feed_time{
+  margin: 1px;
+  text-align: right;
+  font-size: 0.8em;
+}
