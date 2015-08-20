@@ -12,6 +12,12 @@
 }
 
 
+.feed_time{
+  margin: 1px;
+  text-align: right;
+  font-size: 0.8em;
+}
+
 
 .tn{
   margin-top: 5px;

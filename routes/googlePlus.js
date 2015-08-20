@@ -4,13 +4,9 @@ var XMLHttpRequest = require("xhr2");
 var router = express.Router();
 
 router.get("/:id",function (req,res) {
-  console.log("HIHIHIHIHI");
+  var username=req.params.id;
 
-
-  var username=req.params.id
-  console.log(username);
   getJSON('https://www.googleapis.com/plus/v1/people/'+username+'/activities/public?key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY
-  // getJSON('https://www.googleapis.com/plus/v1/people/'+username+'/activities/public?key=AIzaSyDolzZwX8aWFhU0L5fd28p-5nqNySw2-fg'
   , function(data) {
    // do something with 'data'
    res.render('panels/googleplus',{data:data})
@@ -21,11 +17,23 @@ router.get("/:id",function (req,res) {
   });
 });
 
+router.get("/:id/.json",function (req,res) {
+  var username=req.params.id;
+
+  getJSON('https://www.googleapis.com/plus/v1/people/'+username+'/activities/public?key='+process.env.WDI_PROJECT_3_YOUTUBE_API_KEY
+  , function(data) {
+   // do something with 'data'
+   res.json(data);
+
+  }, function(status) {
+  // err
+    res.send("something went wrong")
+  });
+});
+
 
 function getJSON(url, successHandler, errorHandler) {
-var xhr = typeof XMLHttpRequest != 'undefined'
- ? new XMLHttpRequest()
- : new ActiveXObject('Microsoft.XMLHTTP');
+var xhr = new XMLHttpRequest();
 xhr.open('get', url, true);
 xhr.onreadystatechange = function() {
  var status;
@@ -42,6 +50,6 @@ xhr.onreadystatechange = function() {
  }
 };
 xhr.send();
-};
+}
 
 module.exports = router;
