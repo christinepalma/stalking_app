@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>hi</title>
   <body>
     <p>Hi <%= (user.last_name)?(user.first_name+" "+user.last_name):(user.first_name) %>!</p>
@@ -9,5 +10,11 @@
       <li><a href="/users/<%= user.id %>">View my info</a></li>
       <li><a href="/logout">Logout</a></li>
     </ul>
+
+
+    <% panels.forEach(function(el){ %>
+      <!-- <p><%=el._id%></p> -->
+      <embed src="/<%= el.type %>/<%= el.target_id %>"></embed>
+    <% }) %>
   </body>
 </html>

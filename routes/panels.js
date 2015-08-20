@@ -19,14 +19,14 @@ router.route('/')
   });
 
 router.route('/:id')
-  .get(function (req, res) {
-    Panel.findOne({_id:req.params.id},function (err,panel) {
-      if(err) return res.json({sucess:false, message:"err"});
+    .get(function (req, res) {
+      Panel.findOne({_id:req.params.id},function (err,panel) {
+        if(err) return res.json({sucess:false, message:"err"});
 
-      if(!panel) return res.json({sucess:false, message:"No panel founds"});
-      res.json({sucess:true, data:panel});
-    });
-  })
+        if(!panel) return res.json({sucess:false, message:"No panel founds"});
+        res.json({sucess:true, data:panel});
+      });
+    })
   .delete(function (req, res) {
     Panel.findOneAndRemove({_id:req.params.id},function (err,panel) {
       if(err) return res.json({sucess:false, message:"err"});

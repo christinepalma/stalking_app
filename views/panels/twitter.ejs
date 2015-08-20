@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/twitter.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/twitter.js"></script>
+    <title><%= data.name %></title>
+  </head>
+  <body>
+  <header data-url=<%= data[0].user.profile_background_image_url %>>
+    <img class="profile_img" src=<%= data[0].user.profile_image_url.split('_normal').join('') %>>
+    <h1 class="header_name name"><%= data[0].user.name %></h1>
+    <h2 class="header_name screen_name">@<%= data[0].user.screen_name %></h2>
+  </header>
+  <div class="container">
+    <% data.forEach(function(tweet){ %>
+      <% var content = tweet.text %>
+      <% var urls = "" %>
+
+      <% tweet.entities.urls.forEach(function(url){ %>
+        <% content=content.replace(url.url, url.expanded_url) %>
+        <% urls += url.expanded_url+"," %>
+      <% }) %>
+      <% content=content.replace("&amp;", "&") %>
+      <div class="tweet_div">
+        <p class="tweet_content" data-urls="<%= urls %>"><%= content %></p>
+        <p class="tweet_time" data-time="<%=tweet.created_at%>"></p>
+      </div>
+    <% }) %>
+
+  </div>
+  </body>
+</html>

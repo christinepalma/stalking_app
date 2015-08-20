@@ -2,3 +2,10 @@ label{
   display: inline-block;
   width:100px;
 }
+embed{
+  border: 1px solid black;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width:400px;
+  height:400px;
+}

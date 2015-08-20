@@ -76,7 +76,7 @@ app.use('/',routes);
 app.use('/app', isLoggedIn, appRoute);
 app.use('/users', isLoggedIn, users);
 app.use('/panels', panels);
-app.use('/twitter', isLoggedIn, twitter);
+app.use('/twitter', twitter);
 app.use('/instagram', isLoggedIn, instagram);
 app.use('/auth', auth);
 app.use('/youtube', youtube);
@@ -105,7 +105,7 @@ function isLoggedIn(req, res, next) {
         return res.render("login",{errmsgs:["session expired. please login again"]});
       }
       req.decoded = decoded;
-      console.log("TOKEN : ",decoded);
+      // console.log("TOKEN : ",decoded);
       next();
     });
   } else {
