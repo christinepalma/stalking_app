@@ -9,23 +9,33 @@
     <title><%= data.name %></title>
   </head>
   <body>
-  <header data-url=<%= data[0].user.profile_background_image_url %>>
-    <img class="profile_img" src=<%= data[0].user.profile_image_url.split('_normal').join('') %>>
+    <% var background %>
+    <% if(data[0].user.profile_banner_url){background = data[0].user.profile_banner_url}else{background = data[0].user.profile_background_image_url } %>
+  <header data-url="<%= background %>">
+    <img class="profile_img" src="<%= data[0].user.profile_image_url.split('_normal').join('') %>">
     <h1 class="header_name name"><%= data[0].user.name %></h1>
-    <h2 class="header_name screen_name">@<%= data[0].user.screen_name %></h2>
+    <h2 class="header_name screen_name">@<a href="data[0].user.screen_name" target="_blank"><%= data[0].user.screen_name %></a></h2>
   </header>
   <div class="container">
     <% data.forEach(function(tweet){ %>
       <% var content = tweet.text %>
       <% var urls = "" %>
+      <% var pics = "" %>
 
       <% tweet.entities.urls.forEach(function(url){ %>
         <% content=content.replace(url.url, url.expanded_url) %>
         <% urls += url.expanded_url+"," %>
       <% }) %>
+      <% if(tweet.extended_entities){ %>
+        <% var ex = tweet.extended_entities %>
+        <% ex.media.forEach(function(media){ %>
+          <% content=content.replace(media.url, media.media_url) %>
+          <% pics += media.media_url+"," %>
+        <% }) %>
+      <% } %>
       <% content=content.replace("&amp;", "&") %>
       <div class="tweet_div">
-        <p class="tweet_content" data-urls="<%= urls %>"><%= content %></p>
+        <p class="tweet_content" data-urls="<%= urls %>" data-pics="<%= pics %>"><%= content %></p>
         <p class="tweet_time" data-time="<%=tweet.created_at%>"></p>
       </div>
     <% }) %>

@@ -3,6 +3,7 @@ var month =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","D
 $(document).ready(function(){
   console.log("loaded");
   $("header").css("background", "url("+$("header").data("url")+") no-repeat center");
+  $("header").css("background-size", "cover");
 
   $(".tweet_time").each(function(){
     var date = new Date($(this).data("time"));
@@ -14,10 +15,16 @@ $(document).ready(function(){
   });
 
   $(".tweet_content").each(function(){
-    var url_array = $(this).data("urls").split(',');
     var content = $(this).html();
+
+    var url_array = $(this).data("urls").split(',');
     url_array.forEach(function (url) {
-      if(url) content = content.replace(url,"<a href='"+url+"'>"+url+"</a>");
+      if(url) content = content.replace(url,"<a href='"+url+"' target='_blank'>"+url+"</a>");
+    });
+
+    var pic_array = $(this).data("pics").split(',');
+    pic_array.forEach(function (pic) {
+      if(pic) content = content.replace(pic,"<img class='tweet_img' src='"+pic+"'>");
     });
     console.log(content);
     $(this).html(content);
