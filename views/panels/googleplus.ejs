@@ -10,17 +10,40 @@
     <div class="googleplus">
 
       <div class="panel panel-default">
-          <div class="panel-heading"><img src="<%=data.items[0].actor.image.url%>" alt="" />   <%=data.items[0].actor.displayName%></div>
+          <div class="panel-heading"><img id="avatar" src="<%=data.items[0].actor.image.url%>" alt="" />   <%=data.items[0].actor.displayName%></div>
       </div>
 
       <% data.items.forEach(function(item){ %>
 
           <div class="panel panel-default">
               <div class="panel-body">
-                
+
+                <%
+                  var result
+                  if(item.object.attachments){
+                    var attachment = item.object.attachments[0]
+                    if(attachment.objectType == "photo"){
+                      result= attachment.image.url%>
+                      <img id="postPic" class="attachment" src="<%= result %>" alt="" />
+
+                    <% } %>
+
+
+                    <% if(attachment.objectType == "video"){
+                      result= attachment.embed.url%>
+
+                    <iframe id="postVid" src="<%=result%>" width="" height=""></iframe>
+
+                    <% } %>
+                  <% } %>
+                  <p><%=item.object.content%></p>
               </div>
           </div>
+
       <% }) %>
 
     </div>
   </div>
+
+</body>
+</html>
