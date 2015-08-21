@@ -10,8 +10,10 @@
   </head>
   <body>
     <div class="panel panel-default">
-      <div class="panel-heading"><img id="avatar" src="<%=data.items[0].actor.image.url%>" alt="" /><p id="name"><%=data.items[0].actor.displayName%></p></div>
-
+      <div class="panel-heading">
+      <img id="avatar" src="<%=data.items[0].actor.image.url%>" alt="" />
+        <div id="name"><%=data.items[0].actor.displayName%></div>
+      </div>
     </div>
     <% data.items.forEach(function(item){ %>
         <div class="panel panel-default">
