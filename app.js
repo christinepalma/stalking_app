@@ -88,7 +88,7 @@ app.use('/weather', weather);
 
 //server
 app.listen(app.get('port'),function () {
-  console.log("http://127.0.0.1:"+app.get('port')+"/");
+  console.log("https://127.0.0.1:"+app.get('port')+"/");
 });
 
 //login check
