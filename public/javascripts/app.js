@@ -56,7 +56,7 @@ function add_panel(owner, name, type, target_id, order) {
     contentType: 'application/json; charset=UTF-8',
     dataType   : 'json',
     data: JSON.stringify({owner:owner, name:name, type:type, target_id:target_id, order:order}),
-    url: "http://"+ip+"/panels",
+    url: "https://"+ip+"/panels",
     success: function(data){
       var panel_column=document.createElement("div");
       $(panel_column).addClass("col-xs-12 col-sm-6 col-md-6 col-lg-4 column");
@@ -87,7 +87,7 @@ function delete_panel_ajax(panel_id) {
   $.ajax({
     method:"delete",
     timeout:"1000",
-    url: "http://"+ip+"/panels/"+panel_id,
+    url: "https://"+ip+"/panels/"+panel_id,
     success: function(data){
       console.log("panel deleted");
       $("#"+panel_id).hide("slow");
