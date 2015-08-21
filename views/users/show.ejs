@@ -2,13 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="/javascripts/main.js"></script>
-    <title><%= (last_name)?(first_name+" "+last_name):(first_name) %>'s Info</title>
+    <title>STALKER APP</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/app.js"></script>
   </head>
+
+
+
   <body>
+
+
+    <div class="container-fluid">
+
+
+
+
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <a class="navbar-logo" href="#">stalker app</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <!-- <li><a href="#">home<span class="sr-only">(current)</span></a></li> -->
+            <li class="active"><a href="#">start stalking</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+            <li class="right"><a href="/logout">logout</a></li>
+          </ul>
+        </div>
+      </nav>
+
+
+
     <h1><%= (last_name)?(first_name+" "+last_name):(first_name) %>'s Info</h1>
-    <ul>
+    <ul class="profile_page_list">
       <% if(login_type=="local"){ %>
         <li>First Name : <%= first_name %></li>
         <li>Last Name : <%= first_name %></li>
@@ -27,5 +60,19 @@
     <% } %>
     <br><br>
     <a href="/">Back</a>
-  </body>
-</html>
+
+
+
+  </div>
+
+    <footer>
+      <span class="footer_elements">&copy; the best team ever
+        <a href="#"><i id="social" class="fa fa-facebook-square fa-3x"></i></a>
+        <a href="#"><i id="social" class="fa fa-twitter-square fa-3x"></i></a>
+        <a href="#"><i id="social" class="fa fa-google-plus-square fa-3x"></i></a>
+      </span>
+    </footer>
+
+
+    </body>
+  </html>

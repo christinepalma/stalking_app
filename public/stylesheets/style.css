@@ -321,3 +321,12 @@ footer{
   -pie-background:  rgba(255, 255, 255, 0.5);
   behavior: url(PIE.htc);
 }
+
+
+
+
+/*Profile Page Show*/
+
+.profile_page_list{
+  list-style-type: circle;
+}
