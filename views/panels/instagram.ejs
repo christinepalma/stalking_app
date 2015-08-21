@@ -5,9 +5,8 @@
     <title></title>
 
     <link rel="stylesheet" href="/stylesheets/instagram.css">
-    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+    <script src="/javascripts/instagram.js"></script>
 
   </head>
   <body>
@@ -18,12 +17,21 @@
     <h2 class="header_name screen_name">@<a href="http://instagram.com/<%= data[0].user.username %>" target="_blank"><%= data[0].user.username %></a></h2>
   </header>
 
-  <% for(var i=0; i<data.length; i++) {%>
-          <div>
-            <a href="<%=data[i].link%>" id="instagram_images" target="_blank"><img src="<%=data[i].images.low_resolution.url%>"></a>
-            <p>&nbsp;</p>
-          </div>
-    <% } %>
+  <%
+    data.forEach(function(feed){
+      var content;
+      if(feed.caption){
+        content=feed.caption.text;
+      }
+
+      %>
+        <div class="feed_div">
+          <a href="<%=feed.link%>" id="instagram_images" target="_blank"><img class="feed_img" src="<%=feed.images.low_resolution.url%>"></a>
+          <p class="feed_content" data-content="<%= content %>"></p>
+          <p class="feed_time" data-time="<%= feed.created_time %>"></p>
+        </div>
+      <%
+  }) %>
 
 
   </body>
