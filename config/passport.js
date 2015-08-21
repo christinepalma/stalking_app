@@ -7,7 +7,7 @@ passport.use(new FacebookStrategy(
   {
     clientID      : process.env.WDI_PROJECT_3_FACEBOOK_APP_ID,
     clientSecret  : process.env.WDI_PROJECT_3_FACEBOOK_APP_SECRET,
-    callbackURL   : "http://localhost:3000/auth/facebook/callback",
+    callbackURL   : "https://stalkerrr.herokuapp.com/auth/facebook/callback",
     profileFields : ["id","displayName","photos","emails","birthday","location"]
   },
   function (accessToken, refreshToken, profile, done) {
