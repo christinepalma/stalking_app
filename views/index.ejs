@@ -35,17 +35,17 @@
 
       <!-- panels here -->
       <% panels.forEach(function(el){ %>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 column">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 column" id="<%=el.id%>">
           <div class="panel">
-            <div class="panel_header"><%=el.name%></div>
+            <div class="panel_header"><%=el.name%> <a href="#" class="delete_panel" data-panelid="<%=el.id%>">[x]</a> </div>
             <embed class="embedded_panel" src="/<%= el.type %>/<%= el.target_id %>"></embed>
           </div>
         </div>
       <% }) %>
 
       <!-- empty panel -->
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 column">
-        <div class="panel last_panel">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 column last_panel">
+        <div class="panel">
           <div class="panel_header">New Penal</div>
           <div class="empty_panel">
             <div class="centered" id="plus_sign">+</div>
