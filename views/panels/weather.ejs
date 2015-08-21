@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>weather</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/weather.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.4.0/moment-timezone-utils.js" media="screen" title="no title" charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script src="/javascripts/weather.js"></script>
+
+
+  </head>
+  <body>
+    <span id="timer"></span>
+
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <img id="icon" src="http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Weather-icon.png" alt="" />
+            <div id="location">Location: <%=data.sys.country%>, <%=data.name%></div>
+          </div>
+      </div>
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <ul id="data">
+          Description: <%=data.weather[0].main%><br>
+          Temperature: <%=data.main.temp%> °F<br>
+          Humidity: <%=data.main.humidity%>%<br>
+          Cloudiness: <%=data.clouds.all%>%<br>
+          Wind Speed: <%=data.wind.speed%><br>
+        </ul>
+       </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+      <span id="datetime"></span>
+      </div>
+    </div>
+
+
+
+
+  </body>
+</html>

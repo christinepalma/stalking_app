@@ -19,6 +19,8 @@
 
 #avatar{
   padding-right:75px;
+  position:absolute;
+  
 }
 
 #postPic{
@@ -35,4 +37,8 @@
 
 .panel-default{
   margin: 5px;
+}
+
+#name{
+  text-align: center;
 }

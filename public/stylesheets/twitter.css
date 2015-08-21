@@ -8,7 +8,7 @@ body {
 }
 header{
   overflow: auto;
-  height: 100px;
+
 }
 a:link{
   color:gray;
@@ -90,4 +90,28 @@ a:hover{
   top: 50%;
   transform: translate(-45%, -50%);
   font-size: 20px;
+}
+.panel-heading{
+  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
+  padding-top: 2px;
+  padding-bottom: 0;
+}
+
+#profilePicture{
+  width: 50px;
+  height:50px;
+}
+
+.panel-default{
+  margin: 0;
+  border: 0;
+}
+
+h1{
+  text-align: center;
+}
+h2{
+  text-align: center;
 }
