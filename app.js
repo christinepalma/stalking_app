@@ -1,3 +1,20 @@
+console.log(process.env.WDI_PROJECT_3_FACEBOOK_APP_ID);
+console.log(process.env.WDI_PROJECT_3_FACEBOOK_APP_SECRET);
+console.log(process.env.WDI_PROJECT_3_GOOGLE_CLIENT_ID);
+console.log(process.env.WDI_PROJECT_3_GOOGLE_CLIENT_SECRET);
+console.log(process.env.WDI_PROJECT_3_INSTAGRAM_ACCESS_TOKEN);
+console.log(process.env.WDI_PROJECT_3_INSTAGRAM_CLIENT_ID);
+console.log(process.env.WDI_PROJECT_3_INSTAGRAM_CLIENT_SECRET);
+console.log(process.env.WDI_PROJECT_3_MODULUS_CONNECTION);
+console.log(process.env.WDI_PROJECT_3_TWITTER_ACCESS_SECRET);
+console.log(process.env.WDI_PROJECT_3_TWITTER_ACCESS_TOKEN);
+console.log(process.env.WDI_PROJECT_3_TWITTER_CONSUMER_KEY);
+console.log(process.env.WDI_PROJECT_3_TWITTER_CONSUMER_SECRET);
+console.log(process.env.WDI_PROJECT_3_YOUTUBE_API_KEY);
+
+
+
+
 //package load
 var express       = require('express');
 var mongoose      = require('mongoose');
