@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/tumblr.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/javascripts/tumblr.js"></script>
@@ -13,9 +14,14 @@
       <h1 class="header_name name"><%= data.response.blog.title %></h1>
       <h2 class="header_name screen_name"><a href="<%= data.response.blog.url %>" target="_blank"><%= data.response.blog.url %></a></h2>
     </header>
-    <div class="container">
+
+
     <%
       data.response.posts.forEach(function(feed){
+    %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+        <%
         var content;
         switch(feed.type){
           case "photo":
@@ -47,9 +53,14 @@
             <p class="feed_content" data-content="<%= content %>"></p>
             <p class="feed_time" data-time="<%= feed.date %>"></p>
           </div>
+          </div>
+          </div>
+
         <%
+
       })
+
     %>
-    </div>
+
   </body>
 </html>

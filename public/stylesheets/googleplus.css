@@ -9,6 +9,8 @@
 
 .panel-heading{
   font-size: 24px;
+  padding: 3px 15px;
+  height: 63px;
 }
 
 .feed_time{
@@ -18,21 +20,26 @@
 }
 
 #avatar{
-  padding-right:75px;
-  position:absolute;
-  
+  height:55px;
+  width:55px;
+  position: relative;
+  border: 5px solid white;
+  border-radius: 10px;
+
 }
 
 #postPic{
-  width:200px;
-  height:200px;
-  float:right;
+  width:150px;
+  height:150px;
+  float:left;
+  margin-right: 15px;
 }
 
 #postVid{
-  width:200px;
-  height:150px;
-  float: right;
+  width:150px;
+  height:100px;
+  float: left;
+  margin-right: 15px;
 }
 
 .panel-default{
@@ -40,5 +47,8 @@
 }
 
 #name{
-  text-align: center;
+
+  position: relative;
+  display: inline-block;
+
 }

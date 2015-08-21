@@ -4,11 +4,15 @@ body, html{
 }
 body {
   font-family: sans-serif;
-  background-color: rgb(230,230,230);
+  background-color: white;
 }
 header{
   overflow: auto;
+<<<<<<< HEAD
   height: 64px;
+=======
+  height: 70px;
+>>>>>>> c51ed2b4a12ba39f7e0a515d1b1102e52197f319
 }
 a:link{
   color:gray;
@@ -28,10 +32,12 @@ a:hover{
 }
 .profile_img{
   margin: 5px;
+  margin-left:17px;
   border: 5px solid white;
   border-radius: 10px;
   height: 40px;
   float:left;
+  margin-top:10px;
 }
 .header_name{
   margin: 0;
@@ -90,4 +96,11 @@ a:hover{
   top: 50%;
   transform: translate(-45%, -50%);
   font-size: 20px;
+}
+
+.panel-default{
+  margin-top:5px;
+  margin-bottom:5px;
+  margin-left:5px;
+  margin-right:5px;
 }

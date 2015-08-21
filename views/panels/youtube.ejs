@@ -10,8 +10,12 @@
   </head>
   <body>
     <div class="panel panel-default">
-      <div class="panel-heading"><a id="cTitle" href="http://www.youtube.com/channel/<%=data.items[0].snippet.channelId%>" target="_blank"><%=(data.items[0].snippet.channelTitle)%></p></div>
+      <div class="panel-heading">
+        <img id="icon" src="http://www.jessieseely.com/youtube-logo-icon-2014.png" alt=""/>
+        <a id="cTitle" href="http://www.youtube.com/channel/<%=data.items[0].snippet.channelId%>" target="_blank"><%=(data.items[0].snippet.channelTitle)%></a>
+      </div>
     </div>
+
     <% data.items.forEach(function(item){ %>
       <div class="panel panel-default">
         <div class="panel-body">
