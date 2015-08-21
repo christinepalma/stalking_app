@@ -1,6 +1,8 @@
 var express = require('express');
 var XMLHttpRequest = require("xhr2");
 var router = express.Router();
+var moment = require('moment');
+
 
 router.get("/:id",function (req,res) {
   var cityname=req.params.id
@@ -8,7 +10,7 @@ router.get("/:id",function (req,res) {
   getJSON('http://api.openweathermap.org/data/2.5/weather?q='+cityname+'&units=imperial'
   , function(data) {
    // do something with 'data'
-   res.render('panels/weather',{data:data})
+   res.render('panels/weather',{data:data, moment:moment})
 
   }, function(status) {
   // err
