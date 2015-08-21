@@ -8,7 +8,7 @@ body {
 }
 header{
   overflow: auto;
-  height: 100px;
+  height: 64px;
 }
 a:link{
   color:gray;
@@ -30,7 +30,7 @@ a:hover{
   margin: 5px;
   border: 5px solid white;
   border-radius: 10px;
-  height: 80px;
+  height: 40px;
   float:left;
 }
 .header_name{
