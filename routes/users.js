@@ -11,6 +11,7 @@ router.route('/')
     });
   })
   .post(function (req, res) {
+    console.log(req.body);
     if(req.body.email) req.body.email=req.body.email.toLowerCase();
     var user = new User(req.body);
     user.login_type = "local";
