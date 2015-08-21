@@ -10,7 +10,7 @@ var cookieParser  = require('cookie-parser');
 var methodOverride= require('method-override');
 var passport      = require('passport');
 var session       = require('express-session');
-
+var moment        = require('moment');
 //app
 var app = express();
 
@@ -73,6 +73,7 @@ var auth    =require("./routes/auth");
 var youtube =require("./routes/youtube");
 var googleplus =require("./routes/googleplus");
 var tumblr    = require("./routes/tumblr");
+var weather = require("./routes/weather")
 
 app.use('/',routes);
 app.use('/app', isLoggedIn, appRoute);
@@ -84,6 +85,7 @@ app.use('/auth', auth);
 app.use('/youtube', youtube);
 app.use('/googleplus', googleplus);
 app.use('/tumblr', isLoggedIn, tumblr);
+app.use('/weather', weather);
 
 //server
 app.listen(app.get('port'),function () {
