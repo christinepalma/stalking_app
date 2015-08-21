@@ -1,64 +1,43 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="/javascripts/twitter.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/twitter.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/twitter.js"></script>
     <title><%= data.name %></title>
   </head>
   <body>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-          <%
-            var background;
-            if(data[0].user.profile_banner_url){
-              background = data[0].user.profile_banner_url
-            } else {
-              background = data[0].user.profile_background_image_url
-            }
-          %>
-  <header data-url="<%= background %>">
-    <img id="profilePicture" class="profile_img" src="<%= data[0].user.profile_image_url.split('_normal').join('') %>">
+  <header id="profilePic" data-url=<%= data[0].user.profile_background_image_url %>>
+    <img class="profile_img" src=<%= data[0].user.profile_image_url.split('_normal').join('') %>>
     <h1 class="header_name name"><%= data[0].user.name %></h1>
-    <h2 class="header_name screen_name">@<a href="data[0].user.screen_name" target="_blank"><%= data[0].user.screen_name %></a></h2>
+    <h2 class="header_name screen_name">@<%= data[0].user.screen_name %></h2>
   </header>
+
+
+    <% data.forEach(function(tweet){ %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+      <% var content = tweet.text %>
+      <% var urls = "" %>
+
+      <% tweet.entities.urls.forEach(function(url){ %>
+        <% content=content.replace(url.url, url.expanded_url) %>
+        <% urls += url.expanded_url+"," %>
+      <% }) %>
+      <% content=content.replace("&amp;", "&") %>
+
+      <div class="feed_div">
+        <p class="feed_content" data-urls="<%= urls %>"><%= content %></p>
+        <p class="feed_time" data-time="<%=tweet.created_at%>"></p>
+      </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-      <div class="panel-heading">
+    </div>
+    <% }) %>
 
-    <%
-      data.forEach(function(tweet){
-        var content = tweet.text;
-        var urls = "";
-        var pics = "";
 
-        tweet.entities.urls.forEach(function(url){
-          content=content.replace(url.url, url.expanded_url);
-          urls += url.expanded_url+","
-        })
 
-        if(tweet.extended_entities){
-          var ex = tweet.extended_entities;
-          ex.media.forEach(function(media){
-            content=content.replace(media.url, media.media_url);
-            pics += media.media_url+",";
-          })
-        }
-
-        content=content.replace("&amp;", "&");
-        %>
-
-          <div class="feed_div">
-            <p class="feed_content" data-urls="<%= urls %>" data-pics="<%= pics %>"><%= content %></p>
-            <p class="feed_time" data-time="<%=tweet.created_at%>"></p>
-          </div>
-        <%
-      })
-    %>
-  </div>
-  </div>
   </body>
 </html>
