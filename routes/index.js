@@ -7,7 +7,7 @@ var instagram = require("../config/instagram");
 
 router.route('/')
   .get(function (req, res) {
-    res.redirect("/app");
+    res.redirect("https://stalkerrr.herokuapp.com/app");
   });
 
 router.route('/logout')
