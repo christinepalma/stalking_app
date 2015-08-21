@@ -95,6 +95,7 @@ h1{
   z-index: 2;
 }
 .clickable{
+  cursor: pointer;
   -webkit-transition: background-color 1s;
   transition: background-color 1s;
 }
@@ -110,7 +111,6 @@ h1{
   top: 50%;
   transform: translate(-50%, -50%);
   font-size: 50px;
-  cursor: pointer;
 }
 .add_menu_row{
   font-size: 20px;
@@ -133,12 +133,14 @@ h1{
   width: 400px;
   height: 400px;
 }
-
+#plus_sign{
+  cursor: pointer;
+  font-size: 150px;
+}
 
 .slideout_menu{
   list-style: none;
 }
-
 
 
 /*This is the top nav bar*/

@@ -29,6 +29,11 @@ $(document).ready(function(){
     $(input_id).val("");
     var panel_num=$(".panel").length;
     add_panel(user_id, type, path, input_val, panel_num);
+
+    $(".hiddenMenu").css("display","none");
+    $("#plus_sign").css("display","block");
+
+
   });
 
   $(".back_btn").on("click",function () {
@@ -56,6 +61,7 @@ function add_panel(owner, name, type, target_id, order) {
       var panel_column=document.createElement("div");
       $(panel_column).addClass("col-xs-12 col-sm-6 col-md-6 col-lg-4 column");
       $(panel_column).attr('id', data.data._id);
+      $(panel_column).css('display', "none");
       var panel=document.createElement("div");
       $(panel).addClass("panel");
       $(panel_column).append(panel);
@@ -69,6 +75,7 @@ function add_panel(owner, name, type, target_id, order) {
       $(".delete_panel").on("click",delete_panel);
 
       console.log("panel added : "+data.data._id);
+      $("#"+data.data._id).show("slow");
     },
     error:function (err) {
       console.log("failure - panel add");
@@ -83,7 +90,7 @@ function delete_panel_ajax(panel_id) {
     url: "http://"+ip+"/panels/"+panel_id,
     success: function(data){
       console.log("panel deleted");
-      $("#"+panel_id).remove();
+      $("#"+panel_id).hide("slow");
     },
     error:function (err) {
       console.log("failure - panel delete");
