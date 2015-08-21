@@ -19,7 +19,7 @@ passport.use(new GoogleStrategy(
   {
     clientID      : process.env.WDI_PROJECT_3_GOOGLE_CLIENT_ID,
     clientSecret  : process.env.WDI_PROJECT_3_GOOGLE_CLIENT_SECRET,
-    callbackURL   : "http://127.0.0.1:3000/auth/google/callback"
+    callbackURL   : "http://stalkerrr.herokuapp.com/auth/google/callback"
   },
   function (accessToken, refreshToken, profile, done) {
     done(null, profile);
@@ -29,7 +29,7 @@ passport.use(new GoogleStrategy(
 passport.use(new TwitterStrategy({
     consumerKey   : process.env.WDI_PROJECT_3_TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.WDI_PROJECT_3_TWITTER_CONSUMER_SECRET,
-    callbackURL   : "http://127.0.0.1:3000/auth/twitter/callback"
+    callbackURL   : "http://stalkerrr.herokuapp.com/auth/twitter/callback"
   },
   function (accessToken, refreshToken, profile, done) {
     console.log("hi");
