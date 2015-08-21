@@ -2,199 +2,139 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>hi</title>
-
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Stalking App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-
-
-
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+    <script src="/javascripts/app.js"></script>
   </head>
   <body>
-
-
     <div class="container-fluid">
-
-
-    <nav class="navbar navbar-default">
-    <div class="navbar-header">
-      <a class="navbar-logo" href="#">stalker app</a>
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <a class="navbar-logo" href="#">stalker app</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li><a href="#">home<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">start stalking</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+            <li class="right"><a href="/users/<%= user.id %>">profile page</a></li>
+            <li class="right"><a href="/logout">logout</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
 
+    <h1 class="welcome" data-userid="<%= user.id%>">welcome <%= (user.last_name)?(user.first_name+" "+user.last_name):(user.first_name) %>!</h1>
 
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="#">home<span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="#">start stalking</a></li>
-        <li><a href="#">about</a></li>
-        <li><a href="#">contact</a></li>
-        <li class="right"><a href="/users/<%= user.id %>">profile page</a></li>
-        <li class="right"><a href="/logout">logout</a></li>
-      </ul>
+    <div class="row panel_row">
 
-    </div>
-  </div>
-</nav>
+      <!-- panels here -->
+      <% panels.forEach(function(el){ %>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 column" id="<%=el.id%>">
+          <div class="panel">
+            <div class="panel_header"><%=el.name%> <a href="#" class="delete_panel" data-panelid="<%=el.id%>">[x]</a> </div>
+            <embed class="embedded_panel" src="/<%= el.type %>/<%= el.target_id %>"></embed>
+          </div>
+        </div>
+      <% }) %>
 
-
-
-<h1>Hi <%= (user.last_name)?(user.first_name+" "+user.last_name):(user.first_name) %>!</h1>
-
-
-
-<!-- HTML for 3 even width columns responsive -->
-
-        <div class="panel_row">
-
-
-
-<!-- User panels -->
-
-          <% panels.forEach(function(el){ %>
-            <div class="panel">
-              <embed class="embedded_panel" src="/<%= el.type %>/<%= el.target_id %>"></embed>
+      <!-- empty panel -->
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 column last_panel">
+        <div class="panel">
+          <div class="panel_header">New Penal</div>
+          <div class="empty_panel">
+            <div class="centered" id="plus_sign">+</div>
+            <div class="centered hiddenMenu" id="add_menu">
+              <div class="add_menu_row clickable panel_type" data-type="instagram">Instagram</div>
+              <div class="add_menu_row clickable panel_type" data-type="twitter">Twitter</div>
+              <div class="add_menu_row clickable panel_type" data-type="googleplus">Google Plus</div>
+              <div class="add_menu_row clickable panel_type" data-type="youtube">Youtube</div>
+              <div class="add_menu_row clickable panel_type" data-type="tumblr">Tumblr</div>
+              <div class="add_menu_row clickable panel_type" data-type="weather">Weather</div>
             </div>
-          <% }) %>
-
-
-
-<!-- This is empty - starting position - header text to be replaced dynamically- 01 -->
-      <div class="panel">
-        <div class="panel_header">click on the + sign to start</div>
-        <div class="panel_content">
-        <div class="plus_sign">+</div>
+            <div class="centered hiddenMenu" id="instagram">
+              <div class="instruction">
+                <img src="/images/find_instagram.png">
+              </div>
+              <div class="add_menu_row">Instagram Username</div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="instagram_username" id="instagram_username"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
+            </div>
+            <div class="centered hiddenMenu" id="twitter">
+              <div class="instruction">
+                <img src="/images/find_twitter.png">
+              </div>
+              <div class="add_menu_row">Twitter Username</div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="twitter_username" id="twitter_username"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
+            </div>
+            <div class="centered hiddenMenu" id="googleplus">
+              <div class="instruction">
+                <img src="/images/find_google_plus.png">
+              </div>
+              <div class="add_menu_row">Google+ ID Number</div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="google_plus_id" id="googleplus_id"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="id" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
+            </div>
+            <div class="centered hiddenMenu" id="youtube">
+              <div class="instruction">
+                <img src="/images/find_youtube.png">
+              </div>
+              <div class="add_menu_row">Youtube Username</div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="youtube_username" id="youtube_username"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
+              <div class="instruction">
+                <img src="/images/find_youtube.png">
+              </div>
+              <div class="add_menu_row">Youtube Channel ID</div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="youtube_channelid" id="youtube_channelid"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="channelid" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
+            </div>
+            <div class="centered hiddenMenu" id="tumblr">
+              <div class="instruction">
+                <img src="/images/find_tumblr.png">
+              </div>
+              <div class="add_menu_row">tumblr username</div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="tumblr_username" id="tumblr_username"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
+            </div>
+            <div class="centered hiddenMenu" id="weather">
+              <div class="add_menu_row">Add Weather</div>
+              <div class="add_menu_row">City Name</div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="weather_city" id="weather_city"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="city" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
 
-
-
-
-
-  <!-- Panel 1 - slide out menu with username login -->
-                                      <!-- <div class="slideout_menu_container">
-                                      <ul class="slideout_menu">
-                                        <li>
-                                          <a href="#">Facebook</a>
-                                          <ul class="slideout_submenu">
-                                            <li>
-                                              <form>
-                                              <br>
-                                              <input type="text" value="">
-                                              <br><br>
-                                              <input type="submit" value="Submit">
-                                              </form>
-                                              <br>
-                                            </li>
-                                          </ul>
-                                        </li>
-                                        </div>
-
-
-                                        <li>
-                                          <a href="#">Twitter</a>
-                                          <ul class="slideout_submenu">
-                                            <li><a href="#">field</a></li>
-                                            <li><a href="#">enter button</a></li>
-                                          </ul>
-                                        </li>
-
-
-
-                                        <li>
-                                          <a href="#">Google +</a>
-                                          <ul class="slideout_submenu">
-                                            <li><a href="#">field</a></li>
-                                            <li><a href="#">enter button</a></li>
-                                          </ul>
-                                        </li>
-
-
-                                        <li>
-                                          <a href="#">YouTube</a>
-                                          <ul class="slideout_submenu">
-                                            <li><a href="#">field</a></li>
-                                            <li><a href="#">enter button</a></li>
-                                          </ul>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <a href="#">Vimeo</a>
-                                          <ul class="slideout_submenu">
-                                            <li><a href="#">field</a></li>
-                                            <li><a href="#">enter button</a></li>
-                                          </ul>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <a href="#">Vine</a>
-                                          <ul class="slideout_submenu">
-                                            <li><a href="#">field</a></li>
-                                            <li><a href="#">enter button</a></li>
-                                          </ul>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <a href="#">Instagram</a>
-                                          <ul class="slideout_submenu">
-                                            <li><a href="#">field</a></li>
-                                            <li><a href="#">enter button</a></li>
-                                          </ul>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <a href="#">Pinterest</a>
-                                          <ul class="slideout_submenu">
-                                            <li><a href="#">field</a></li>
-                                            <li><a href="#">enter button</a></li>
-                                          </ul>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <a href="#">Flikr</a>
-                                          <ul class="slideout_submenu">
-                                            <li><a href="#">field</a></li>
-                                            <li><a href="#">enter button</a></li>
-                                          </ul>
-                                        </li>
-                                          </ul>
-                                    </div> -->
-            <!-- /end slideout menu -->
-
-
-
-<!-- This is the footer -->
-
-<div class="footer">
-<span class="footer_elements">&copy; the best team ever
-              <a href="#"><i id="social" class="fa fa-facebook-square fa-3x"></i></a>
-	            <a href="#"><i id="social" class="fa fa-twitter-square fa-3x"></i></a>
-	            <a href="#"><i id="social" class="fa fa-google-plus-square fa-3x"></i></a>
-</span>
-</div>
-
-
-
-
-</div>
+    <footer>
+      <span class="footer_elements">&copy; the best team ever
+        <a href="#"><i id="social" class="fa fa-facebook-square fa-3x"></i></a>
+      	<a href="#"><i id="social" class="fa fa-twitter-square fa-3x"></i></a>
+      	<a href="#"><i id="social" class="fa fa-google-plus-square fa-3x"></i></a>
+      </span>
+    </footer>
   </body>
 </html>
