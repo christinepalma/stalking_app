@@ -21,8 +21,8 @@ app.set('view engine', 'ejs');
 
 //database setup
 
-//mongoose.connect(process.env.WDI_PROJECT_3_MODULUS_CONNECTION);
-mongoose.connect('mongodb://localhost:27017/stalking_app_db');
+mongoose.connect(process.env.WDI_PROJECT_3_MODULUS_CONNECTION);
+// mongoose.connect('mongodb://localhost:27017/stalking_app_db');
 var db = mongoose.connection;
 
 db.on("error",function (err) {
@@ -88,7 +88,7 @@ app.use('/weather', weather);
 
 //server
 app.listen(app.get('port'),function () {
-  console.log("http://127.0.0.1:"+app.get('port')+"/");
+  console.log("https://127.0.0.1:"+app.get('port')+"/");
 });
 
 //login check

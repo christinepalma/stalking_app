@@ -3,15 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>googleplus</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/googleplus.css" media="screen" title="no title" charset="utf-8">
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/javascripts/googleplus.js"></script>
   </head>
   <body>
     <div class="panel panel-default">
-      <div class="panel-heading"><img id="avatar" src="<%=data.items[0].actor.image.url%>" alt="" /><p id="name"><%=data.items[0].actor.displayName%></p></div>
-
+      <div class="panel-heading">
+      <img id="avatar" src="<%=data.items[0].actor.image.url%>" alt="" />
+        <div id="name"><%=data.items[0].actor.displayName%></div>
+      </div>
     </div>
     <% data.items.forEach(function(item){ %>
         <div class="panel panel-default">

@@ -3,15 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>youtube</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/youtube.css" media="screen" title="no title" charset="utf-8">
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/javascripts/googleplus.js"></script>
   </head>
   <body>
     <div class="panel panel-default">
-      <div class="panel-heading"><a id="cTitle" href="http://www.youtube.com/channel/<%=data.items[0].snippet.channelId%>" target="_blank"><%=(data.items[0].snippet.channelTitle)%></p></div>
+      <div class="panel-heading">
+        <img id="icon" src="http://www.jessieseely.com/youtube-logo-icon-2014.png" alt=""/>
+        <a id="cTitle" href="http://www.youtube.com/channel/<%=data.items[0].snippet.channelId%>" target="_blank"><%=(data.items[0].snippet.channelTitle)%></a>
+      </div>
     </div>
+
     <% data.items.forEach(function(item){ %>
       <div class="panel panel-default">
         <div class="panel-body">
