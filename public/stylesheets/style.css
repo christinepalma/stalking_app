@@ -117,9 +117,11 @@ h1{
   padding: 3px;
 }
 .instruction{
-  background-color: yellow;
   width:300px;
   height:100px;
+}
+.instruction img{
+  width:100%;
 }
 .add_menu_row input{
   color: black;
