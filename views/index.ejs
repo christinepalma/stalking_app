@@ -29,7 +29,7 @@
       </nav>
     </div>
 
-    <h1>welcome <%= (user.last_name)?(user.first_name+" "+user.last_name):(user.first_name) %>!</h1>
+    <h1 class="welcome" data-userid="<%= user.id%>">welcome <%= (user.last_name)?(user.first_name+" "+user.last_name):(user.first_name) %>!</h1>
 
     <div class="row panel_row">
 
@@ -62,46 +62,58 @@
                 <img src="">
               </div>
               <div class="add_menu_row">Instagram Username</div>
-              <div class="add_menu_row"><input type="text" name="instagram_username" id="instagram_username"></div>
-              <div class="add_menu_row"><input type="button" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="instagram_username" id="instagram_username"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
             </div>
             <div class="centered hiddenMenu" id="twitter">
               <div class="instruction">
                 <img src="">
               </div>
               <div class="add_menu_row">Twitter ID</div>
-              <div class="add_menu_row"><input type="text" name="twitter_username" id="twitter_username"></div>
-              <div class="add_menu_row"><input type="button" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="twitter_username" id="twitter_username"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
             </div>
             <div class="centered hiddenMenu" id="googleplus">
               <div class="instruction">
                 <img src="">
               </div>
               <div class="add_menu_row">Google Plus ID</div>
-              <div class="add_menu_row"><input type="text" name="googleplus_id" id="googleplus_id"></div>
-              <div class="add_menu_row"><input type="button" class="add_btn" data-addby="id" value="Add"><input type="button" class="back_btn" value="back"></div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="googleplus_id" id="googleplus_id"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="id" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
             </div>
             <div class="centered hiddenMenu" id="youtube">
               <div class="instruction">
                 <img src="">
               </div>
               <div class="add_menu_row">Youtube Username</div>
-              <div class="add_menu_row"><input type="text" name="youtube_username" id="youtube_username"></div>
-              <div class="add_menu_row"><input type="button" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="youtube_username" id="youtube_username"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
               <div class="instruction">
                 <img src="">
               </div>
               <div class="add_menu_row">Youtube Channel ID</div>
-              <div class="add_menu_row"><input type="text" name="youtube_channelid" id="youtube_channelid"></div>
-              <div class="add_menu_row"><input type="button" class="add_btn" data-addby="channelid" value="Add"><input type="button" class="back_btn" value="back"></div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="youtube_channelid" id="youtube_channelid"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="channelid" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
             </div>
             <div class="centered hiddenMenu" id="tumblr">
               <div class="instruction">
                 <img src="">
               </div>
               <div class="add_menu_row">tumblr username</div>
-              <div class="add_menu_row"><input type="text" name="tumblr_username" id="tumblr_username"></div>
-              <div class="add_menu_row"><input type="button" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="tumblr_username" id="tumblr_username"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="username" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
             </div>
             <div class="centered hiddenMenu" id="weather">
               <div class="instruction">
@@ -109,8 +121,10 @@
               </div>
               <div class="add_menu_row">Add Weather</div>
               <div class="add_menu_row">City Name</div>
-              <div class="add_menu_row"><input type="text" name="weather_city" id="weather_city"></div>
-              <div class="add_menu_row"><input type="button" class="add_btn" data-addby="city" value="Add"><input type="button" class="back_btn" value="back"></div>
+              <form class="add_panel">
+                <div class="add_menu_row"><input type="text" name="weather_city" id="weather_city"></div>
+                <div class="add_menu_row"><input type="submit" class="add_btn" data-addby="city" value="Add"><input type="button" class="back_btn" value="back"></div>
+              </form>
             </div>
           </div>
         </div>
