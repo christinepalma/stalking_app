@@ -20,17 +20,28 @@
     <% data.forEach(function(tweet){ %>
       <div class="panel panel-default">
         <div class="panel-body">
-      <% var content = tweet.text %>
-      <% var urls = "" %>
 
+      <% var content = tweet.text %>
+      <% content=content.replace("&amp;", "&") %>
+
+      <% var urls = "" %>
       <% tweet.entities.urls.forEach(function(url){ %>
         <% content=content.replace(url.url, url.expanded_url) %>
         <% urls += url.expanded_url+"," %>
       <% }) %>
-      <% content=content.replace("&amp;", "&") %>
+
+      <% var pics = "" %>
+      <% if(tweet.extended_entities){ %>
+        <% var ex = tweet.extended_entities %>
+        <% ex.media.forEach(function(media){ %>
+          <% content=content.replace(media.url, media.media_url) %>
+          <% pics += media.media_url+"," %>
+        <% }) %>
+      <% } %>
+
 
       <div class="feed_div">
-        <p class="feed_content" data-urls="<%= urls %>"><%= content %></p>
+        <p class="feed_content" data-urls="<%= urls %>" data-pics="<%= pics %>"><%= content %></p>
         <p class="feed_time" data-time="<%=tweet.created_at%>"></p>
       </div>
     </div>
